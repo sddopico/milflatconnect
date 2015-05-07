@@ -1,39 +1,18 @@
-<h1>Listing flats</h1>
+<h1>Flat Listing</h1>
+<% @flats.each do |flat| %>   
+	<%= flat.address %>
+	<%= flat.city %>
+	<%= flat.base %>
+	<%= flat.summary %>
+	<%= flat.price %>
+	<%= flat.sec_deposit %>
+	<%= flat.photos %>
+	<%= flat.user.fullname %>
+	<%= link_to 'Edit', edit_flat_path(flat) %>
+	<%= link_to 'Destroy', flat, method: :delete, data: { confirm: 'Are you sure?' } %>        
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Address</th>
-      <th>City</th>
-      <th>Base</th>
-      <th>Summary</th>
-      <th>Price</th>
-      <th>Sec deposit</th>
-      <th>Photos</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<br />
 
-  <tbody>
-    <% @flats.each do |flat| %>
-      <tr>
-        <td><%= flat.address %></td>
-        <td><%= flat.city %></td>
-        <td><%= flat.base %></td>
-        <td><%= flat.summary %></td>
-        <td><%= flat.price %></td>
-        <td><%= flat.sec_deposit %></td>
-        <td><%= flat.photos %></td>
-        <td><%= flat.user_id %></td>
-        <td><%= link_to 'Show', flat %></td>
-        <td><%= link_to 'Edit', edit_flat_path(flat) %></td>
-        <td><%= link_to 'Destroy', flat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Flat', new_flat_path %>
+<h1>Post a Flat</h1>
+<%= render 'form' %>

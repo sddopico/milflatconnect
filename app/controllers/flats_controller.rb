@@ -5,6 +5,7 @@ class FlatsController < ApplicationController
 
   def index
     @flats = Flat.all
+    @flat = Flat.new
     respond_with(@flats)
   end
 
@@ -23,7 +24,7 @@ class FlatsController < ApplicationController
   def create
     @flat = Flat.new(flat_params)
     @flat.save
-    respond_with(@flat)
+    redirect_to flats_url
   end
 
   def update

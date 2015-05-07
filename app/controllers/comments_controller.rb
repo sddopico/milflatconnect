@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
 
   def index
     @comments = Comment.all
+    @comment = Comment.new
     @users = User.all
     respond_with(@comments)
   end
@@ -24,7 +25,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.save
-    respond_with(@comment)
+    redirect_to comments_url
   end
 
   def update
