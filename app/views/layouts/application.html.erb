@@ -8,7 +8,31 @@
 </head>
 <body>
 
-<%= yield %>
+<% if user_signed_in? %>
+	<%= link_to 'logout', destroy_user_session_path, :method => :delete %><br />
+	<%= link_to 'home', root_path %> | <%= link_to 'flat', flats_path %> | <%= link_to 'comments', comments_path %>
+	<%= yield %>	
+<% else %>
+
+	<h1>Welcome</h1>
+	<h2>sign-up</h2>
+	<%= form_for(:user, :url => registration_path(:user)) do |f| %>
+		<%= f.text_field :f_name, :placeholder => "first name" %><br />
+		<%= f.text_field :l_name, :placeholder => "last name" %><br />
+		<%= f.text_field :cell_num, :placeholder => "contact number" %><br />
+		<%= f.email_field :email, :placeholder => "youremail@example.com" %><br />
+		<%= f.password_field :password, :placeholder => "password", autocomplete: "off" %>&nbsp;
+		<%= f.password_field :password_confirmation, :placeholder => "confirm", autocomplete: "off" %><br />
+		<%= f.submit "join" %>
+	<% end %>
+	<h2>sign-in</h2>
+	<%= form_for(:user, :url => session_path(:user)) do |f| %>
+		<%= f.email_field :email, :placeholder => "youremail@example.com", autofocus: true %><br />
+		<%= f.password_field :password, :placeholder => "password", autocomplete: "off" %><br />
+		<%= f.submit "login" %>
+	<% end %>
+
+<% end %>
 
 </body>
 </html>
