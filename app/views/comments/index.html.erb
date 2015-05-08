@@ -1,13 +1,19 @@
 <h1>Comment Listing</h1>
 <% @comments.each do |comment| %>
-	<%= comment.user.fullname %>
-	<%= comment.commentor_id %>
-	<%= comment.comment %>
+	<%= comment.date_filed.strftime("%B %Y") %><br />
+	<%= comment.user.fullname %><br />
+	<% @users.each do |user| %>
+		<% if comment.commentor_id == user.id %>
+			<%= user.fullname %><br />
+		<% end %>
+	<% end %>
+	<%= comment.comment %><br />
 	<%= link_to 'Edit', edit_comment_path(comment) %>
 	<%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+<br />
+<br />
 <% end %>
 
-<br />
 
 <h1>Create Comment</h1>
 <%= render 'form' %>

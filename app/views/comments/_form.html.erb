@@ -12,6 +12,8 @@
   <% end %>
 
 	<%= f.hidden_field :commentor_id, :value => current_user.id %>
+	<%= f.hidden_field :date_filed, :value => DateTime.now.to_date %>
+
 	<%= f.collection_select :user_id, User.all, :id, :fullname, :prompt => 'Select User to Rate' %><br />
 	<%= f.label :comment %><br />
 	<%= f.text_area :comment %><br />
