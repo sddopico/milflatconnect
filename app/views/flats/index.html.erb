@@ -1,24 +1,2 @@
-<h1>Flat Listing</h1>
-<% @flats.each do |flat| %>   
-	<%= flat.tagline %><br />
-	<%= flat.available_date.strftime("%b %d") %><br />
-	<%= flat.address %><br />
-	<%= flat.city %><br />
-	<%= flat.base %><br />
-	<%= flat.description %><br />
-	<%= flat.bedroom %><br />
-	<%= flat.bathroom %><br />
-	<%= flat.price %><br />
-	<%= flat.sec_deposit %><br />
-	<%= flat.cleaning_fee %><br />
-	<%= flat.house_rules %><br />
-	<%= flat.photos %><br />
-	<%= flat.user.fullname %><br />
-	<%= link_to 'Edit', edit_flat_path(flat) %>
-	<%= link_to 'Destroy', flat, method: :delete, data: { confirm: 'Are you sure?' } %>        
-<% end %>
-
-<br />
-
-<h1>Post a Flat</h1>
+<h1>Add a Flat</h1>
 <%= render 'form' %>

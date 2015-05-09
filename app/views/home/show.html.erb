@@ -1,0 +1,38 @@
+<h1>Flat</h1>
+<% @flats.each do |flat| %>  
+	<% if params[:id].to_s == flat.id.to_s %>
+		<%= flat.tagline %><br />
+		<%= flat.available_date.strftime("%b %d") %><br />
+		<%= flat.address %><br />
+		<%= flat.city %><br />
+		<%= flat.base %><br />
+		<%= flat.description %><br />
+		<%= flat.bedroom %><br />
+		<%= flat.bathroom %><br />
+		<%= flat.price %><br />
+		<%= flat.sec_deposit %><br />
+		<%= flat.cleaning_fee %><br />
+		<%= flat.house_rules %><br />
+		<%= flat.photos %><br />
+		<%= flat.user.fullname %><br />
+		<%= link_to 'Edit', edit_flat_path(flat) %>
+		<%= link_to 'Destroy', flat, method: :delete, data: { confirm: 'Are you sure?' } %>        	
+		<h1>Comments</h1>
+		<% @comments.each do |comment| %>
+			<% if flat.user_id == comment.user_id %>			
+				<%= comment.date_filed.strftime("%B %Y") %><br />
+				<% @users.each do |user| %>
+					<% if comment.commentor_id == user.id %>
+						<%= user.fullname %><br />
+					<% end %>
+				<% end %>
+				<%= comment.comment %><br />
+				<%= link_to 'Edit', edit_comment_path(comment) %>
+				<%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+			<br />
+			<br />
+			<% end %>
+		<% end %>
+	<% end %>
+<% end %>
+

@@ -10,7 +10,7 @@
 
 <% if user_signed_in? %>
 	<%= link_to 'logout', destroy_user_session_path, :method => :delete %><br />
-	<%= link_to 'home', root_path %> | <%= link_to 'flat', flats_path %> | <%= link_to 'comments', comments_path %>
+	<%= link_to 'home', root_path %> | <%= link_to 'Add Flat', flats_path %> | <%= link_to 'Add Comments', comments_path %>
 	<%= yield %>	
 <% else %>
 
