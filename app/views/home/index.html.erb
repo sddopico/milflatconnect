@@ -3,21 +3,25 @@
 	<h1>Flats</h1>
 	<% @flats.each do |flat| %>   
 		<%= link_to flat.tagline, home_path(:id => flat.id) %><br />
-		<%= flat.available_date.strftime("%b %d") %><br />
-		<%= flat.address %><br />
-		<%= flat.city %><br />
-		<%= flat.base %><br />
-		<%= flat.description %><br />
-		<%= flat.bedroom %><br />
-		<%= flat.bathroom %><br />
-		<%= flat.price %><br />
-		<%= flat.sec_deposit %><br />
-		<%= flat.cleaning_fee %><br />
-		<%= flat.house_rules %><br />
-		<%= flat.photos %><br />
-		<%= flat.user.fullname %><br />
-		<%= link_to 'Edit', edit_flat_path(flat) %>
-		<%= link_to 'Destroy', flat, method: :delete, data: { confirm: 'Are you sure?' } %>        	
+			<%= link_to flat.user.fullname, edit_home_path(:id => flat.user_id) %><br />
+			<%= flat.available_date.strftime("%b %d") %><br />
+			<%= flat.address %><br />
+			<%= flat.city %><br />
+			<%= flat.base %><br />
+			<%= flat.description %><br />
+			<%= flat.bedroom %><br />
+			<%= flat.bathroom %><br />
+			<%= flat.price %><br />
+			<%= flat.sec_deposit %><br />
+			<%= flat.cleaning_fee %><br />
+			<%= flat.house_rules %><br />
+			<%= flat.photos %><br />
+			<% if current_user.id == flat.id %>
+				<%= link_to 'Edit', edit_flat_path(flat) %>
+				<%= link_to 'Remove', flat, method: :delete, data: { confirm: 'Are you sure?' } %>        	
+			<% end %>
+			<br />
+			<br />
 	<% end %>
 <% else %>
 	<h1>Welcome</h1>

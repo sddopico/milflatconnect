@@ -9,4 +9,8 @@ class HomeController < ApplicationController
   	@comments = Comment.all
   	@users = User.all
   end
+  def edit
+  	@comments = Comment.all
+  	@users = User.all
+  end
 end

@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.save
-    redirect_to comments_url
+    redirect_to(:back)
   end
 
   def update
@@ -35,7 +35,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    respond_with(@comment)
+    redirect_to(:back)
   end
 
   private

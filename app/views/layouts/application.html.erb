@@ -10,10 +10,9 @@
 
 <% if user_signed_in? %>
 	<%= link_to 'logout', destroy_user_session_path, :method => :delete %><br />
-	<%= link_to 'home', root_path %> | <%= link_to 'Add Flat', flats_path %> | <%= link_to 'Add Comments', comments_path %>
+	<%= link_to 'Home', root_path %> | <%= link_to 'Add Flat', flats_path %>
 	<%= yield %>	
 <% else %>
-
 	<h1>Welcome</h1>
 	<h2>sign-up</h2>
 	<%= form_for(:user, :url => registration_path(:user)) do |f| %>
@@ -31,7 +30,6 @@
 		<%= f.password_field :password, :placeholder => "password", autocomplete: "off" %><br />
 		<%= f.submit "login" %>
 	<% end %>
-
 <% end %>
 
 </body>
