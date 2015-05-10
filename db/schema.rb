@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20150507014013) do
     t.integer  "sec_deposit"
     t.integer  "cleaning_fee"
     t.text     "house_rules"
-    t.string   "photos"
+    t.string   "photo_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

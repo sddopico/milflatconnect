@@ -3,5 +3,5 @@ class Flat < ActiveRecord::Base
 				  "Fort Bliss", "Fort Drum", "Fort Lewis"]
 	
 	belongs_to :user
-	
+	attachment :photo
 end

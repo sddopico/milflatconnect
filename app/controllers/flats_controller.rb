@@ -1,6 +1,6 @@
 class FlatsController < ApplicationController
   before_action :set_flat, only: [:show, :edit, :update, :destroy]
-
+ #before_action :authenticate_user!
   respond_to :html
 
   def index
@@ -24,7 +24,7 @@ class FlatsController < ApplicationController
   def create
     @flat = Flat.new(flat_params)
     @flat.save
-    redirect_to flats_url
+	respond_with(@flat)
   end
 
   def update
@@ -44,6 +44,6 @@ class FlatsController < ApplicationController
 
     def flat_params
       params.require(:flat).permit(:tagline, :available_date, :address, :city, :base, :description, :bedroom, :bathroom, :price,
-      :sec_deposit, :cleaning_fee, :house_rules, :photos, :user_id)
+      :sec_deposit, :cleaning_fee, :house_rules, :photo, :user_id)
     end
 end

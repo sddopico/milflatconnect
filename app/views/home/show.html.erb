@@ -13,28 +13,29 @@
 		<%= flat.sec_deposit %><br />
 		<%= flat.cleaning_fee %><br />
 		<%= flat.house_rules %><br />
-		<%= flat.photos %><br />
+		<%= image_tag(attachment_url(flat, :photo, :fill, 300, 300)) %><br />
 		<% if current_user.id == flat.user_id %>
 			<%= link_to 'Edit', edit_flat_path(flat) %>
 			<%= link_to 'Destroy', flat, method: :delete, data: { confirm: 'Are you sure?' } %>        	
 		<% end %>
-		<h1>Comments on <%= flat.user.fullname %> and <%= flat.address %></h1>
+		<h1>Comments on <%= flat.address %></h1>
 		<% @comments.each do |comment| %>
 			<% if flat.user_id == comment.user_id %>
 				<%= comment.date_filed.strftime("%B %Y") %><br />
 				<% @users.each do |user| %>
 					<% if comment.commentor_id == user.id %>
-						<%= user.fullname %><br />
+						<%= link_to user.fullname, edit_home_path(:id => comment.commentor_id) %><br />
 					<% end %>
 				<% end %>
 				<%= comment.comment %><br />
 				<% if current_user.id == comment.commentor_id %>
-					<%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+					<%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %><br />
 				<% end %>
-			<br />
 			<br />
 			<% end %>
 		<% end %>
-		<%= link_to "Share Your Experience", edit_home_path(:id => flat.user_id) %>
+		<% if current_user.id != flat.user_id %>
+			<%= link_to "Share Your Experience", edit_home_path(:id => flat.user_id) %>
+		<% end %>
 	<% end %>
 <% end %>

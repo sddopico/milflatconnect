@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :flats
 
   devise_for :users
+  resources :users
 
   root :to => 'home#index'
   resources :home, path_names: { edit: 'user' }

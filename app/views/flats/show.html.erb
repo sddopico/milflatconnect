@@ -62,7 +62,7 @@
 
 <p>
   <strong>Photos:</strong>
-  <%= @flat.photos %>
+  <%= image_tag attachment_url(@flat, :photo, :fill, 300, 300) %>
 </p>
 
 <p>

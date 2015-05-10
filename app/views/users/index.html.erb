@@ -1,0 +1,12 @@
+<h1>User Rollup</h1>
+<% @comments.each do |c| %>
+	<% @users.each do |u| %>
+		<% if c.commentor_id == u.id %>
+			Comments on <%= c.user.fullname %> By <%= u.fullname %><br />
+			<%= c.comment %><br /><br />
+		<% end %>
+	<% end %>
+<% end %>
+
+
+<p>need to add ability to find a user and see all comments left on them</p>

@@ -1,2 +1,13 @@
-<h1>Create Comment</h1>
+<h1>Leave Comment</h1>
 <%= render 'form' %>
+
+<h1>Comments on Tenants</h1>
+<% @comments.each do |c| %>
+	<% @users.each do |u| %>
+		<% if c.commentor_id == u.id %>
+			Rental Experience with <%= c.user.fullname %> By <%= u.fullname %><br />
+			<%= c.comment %><br /><br />
+		<% end %>
+	<% end %>
+<% end %>
+

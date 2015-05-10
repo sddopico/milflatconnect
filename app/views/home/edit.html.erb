@@ -1,24 +1,25 @@
 <% @users.each do |u| %>  
 	<% if params[:id].to_s == u.id.to_s %> 
-		<h1>Owner: <%= u.fullname %></h1>
-		<h1>Comments</h1>
+		<h1>Comments about <%= u.fullname %></h1>
 		<% @comments.each do |comment| %>
 			<% if u.id == comment.user_id %>			
 				<%= comment.date_filed.strftime("%B %Y") %><br />
 				<% @users.each do |user| %>
 					<% if comment.commentor_id == user.id %>
-						<%= user.fullname %><br />
+						<%= link_to user.fullname, edit_home_path(:id => comment.commentor_id) %><br />
 					<% end %>
 				<% end %>
 				<%= comment.comment %><br />
 				<% if current_user.id == comment.commentor_id %>
-					<%= link_to 'Remove', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+					<%= link_to 'Remove', comment, method: :delete, data: { confirm: 'Are you sure?' } %><br /><br />
+				<% else %>
+					<br />
 				<% end %>
-			<br />
-			<br />
 			<% end %>
 		<% end %>
 	<% end %>
 <% end %>
-<h1>Add A Comment</h1>
-<%= render :partial => "comments/form" %>
+<% if current_user.id.to_s != params[:id].to_s %>
+	<h1>Add A Comment</h1>
+	<%= render :partial => "comments/comment" %>
+<% end %>
