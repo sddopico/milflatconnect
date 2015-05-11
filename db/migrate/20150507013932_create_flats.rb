@@ -3,6 +3,8 @@ class CreateFlats < ActiveRecord::Migration
     create_table :flats do |t|
       t.text :tagline
       t.date :available_date
+      t.float :latitude
+      t.float :longitude
       t.string :address
       t.string :city
       t.string :base

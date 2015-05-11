@@ -3,5 +3,8 @@ class Flat < ActiveRecord::Base
 				  "Fort Bliss", "Fort Drum", "Fort Lewis"]
 	
 	belongs_to :user
-	attachment :photo
+	attachment :photo, type: :image
+	
+	geocoded_by :address
+	after_validation :geocode
 end

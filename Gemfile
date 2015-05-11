@@ -41,3 +41,5 @@ gem 'spring',        group: :development
 gem 'devise'
 gem "mini_magick"
 gem "refile", require: ["refile/rails", "refile/image_processing"]
+gem 'geocoder'
+gem 'gmaps4rails'

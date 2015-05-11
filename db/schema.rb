@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20150507014013) do
   create_table "flats", force: true do |t|
     t.text     "tagline"
     t.date     "available_date"
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "address"
     t.string   "city"
     t.string   "base"

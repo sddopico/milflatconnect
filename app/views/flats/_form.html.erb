@@ -12,6 +12,8 @@
   <% end %>
 
 	<%= f.hidden_field :user_id, :value => current_user.id %>
+	<%= f.hidden_field :latitude %>
+	<%= f.hidden_field :longitude %>
 	<%= f.label :tagline %><br />
 	<%= f.text_area :tagline %><br />
 	<%= f.label :available_date %><br />
@@ -36,6 +38,6 @@
 	<%= f.label :house_rules %><br />
 	<%= f.text_area :house_rules %><br />
 	<%= f.label :photo %><br />
-	<%= f.attachment_field :photo %><br />
+	<%= f.attachment_field :photo, direct: true %><br />
 	<%= f.submit %>
 <% end %>
