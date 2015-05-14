@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use sqlite3 as the database for Active Record
@@ -43,3 +42,4 @@ gem "mini_magick"
 gem "refile", require: ["refile/rails", "refile/image_processing"]
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'ffaker'

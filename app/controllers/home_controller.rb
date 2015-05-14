@@ -1,4 +1,7 @@
 class HomeController < ApplicationController
+  def main
+  
+  end
   def index
   	@flats = Flat.all
   	@comments = Comment.all
