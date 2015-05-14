@@ -1,14 +1,15 @@
 class HomeController < ApplicationController
-  def main
-  
-  end
   def index
-  	@flats = Flat.all
-  	@comments = Comment.all
-  	@users = User.all
-  	@hash = Gmaps4rails.build_markers(@flats) do |flat, marker|
-	  marker.lat flat.latitude
-	  marker.lng flat.longitude
+  	if params[:search]
+  		@flats = Flat.search(params[:search]).order("created_at DESC")
+  		@comments = Comment.all
+		@users = User.all
+		@hash = Gmaps4rails.build_markers(@flats) do |flat, marker|
+		  marker.lat flat.latitude
+		  marker.lng flat.longitude
+		end
+  	else
+  		@flats = Flat.limit(0)
 	end
   end
   def show
