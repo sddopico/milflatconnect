@@ -15,7 +15,7 @@
 		</script>
 		<% @flats.each do |flat| %>   
 			<%= link_to flat.tagline, home_path(:id => flat.id) %><br />
-				<%= link_to flat.user.fullname, edit_home_path(:id => flat.user_id) %><br />
+				<%= link_to flat.user.f_name, edit_home_path(:id => flat.user_id) %><br />
 				<%= flat.available_date.strftime("%b %d") %><br />
 				<%= flat.address %><br />
 				<%= flat.city %><br />

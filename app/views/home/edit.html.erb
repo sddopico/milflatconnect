@@ -1,12 +1,12 @@
 <% @users.each do |u| %>  
 	<% if params[:id].to_s == u.id.to_s %> 
-		<h1>Comments about <%= u.fullname %></h1>
+		<h1>Comments about <%= u.f_name %></h1>
 		<% @comments.each do |comment| %>
 			<% if u.id == comment.user_id %>			
 				<%= comment.date_filed.strftime("%B %Y") %><br />
 				<% @users.each do |user| %>
 					<% if comment.commentor_id == user.id %>
-						<%= link_to user.fullname, edit_home_path(:id => comment.commentor_id) %><br />
+						<%= link_to user.f_name, edit_home_path(:id => comment.commentor_id) %><br />
 					<% end %>
 				<% end %>
 				<%= comment.comment %><br />

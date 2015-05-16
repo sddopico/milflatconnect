@@ -24,7 +24,7 @@
 				<%= comment.date_filed.strftime("%B %Y") %><br />
 				<% @users.each do |user| %>
 					<% if comment.commentor_id == user.id %>
-						<%= link_to user.fullname, edit_home_path(:id => comment.commentor_id) %><br />
+						<%= link_to user.f_name, edit_home_path(:id => comment.commentor_id) %><br />
 					<% end %>
 				<% end %>
 				<%= comment.comment %><br />

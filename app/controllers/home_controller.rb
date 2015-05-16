@@ -2,7 +2,6 @@ class HomeController < ApplicationController
   def index
   	if params[:search]
   		@flats = Flat.search(params[:search]).order("created_at DESC")
-  		@comments = Comment.all
 		@users = User.all
 		@hash = Gmaps4rails.build_markers(@flats) do |flat, marker|
 		  marker.lat flat.latitude
@@ -14,11 +13,11 @@ class HomeController < ApplicationController
   end
   def show
   	@flats = Flat.all
-  	@comments = Comment.all
-  	@users = User.all
+  	@comments = Comment.select("id", "date_filed", "commentor_id", "comment", "user_id")
+  	@users = User.select("id", "f_name")
   end
   def edit
-  	@comments = Comment.all
-  	@users = User.all
+  	@comments = Comment.select("id", "date_filed", "commentor_id", "comment", "user_id")
+  	@users = User.select("id", "f_name")
   end
 end

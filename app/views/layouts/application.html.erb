@@ -29,6 +29,7 @@
 		<%= f.password_field :password, :placeholder => "password", autocomplete: "off" %><br />
 		<%= f.submit "login" %>
 	<% end %>
+	<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
 <% end %>
 
 </body>

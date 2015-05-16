@@ -43,3 +43,6 @@ gem "refile", require: ["refile/rails", "refile/image_processing"]
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'ffaker'
+gem 'omniauth'
+gem 'omniauth-facebook' 
+gem 'omniauth-linkedin'
