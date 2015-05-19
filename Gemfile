@@ -38,8 +38,6 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'devise'
-gem "mini_magick"
-gem "refile", require: ["refile/rails", "refile/image_processing"]
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'ffaker'

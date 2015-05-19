@@ -15,7 +15,6 @@ class CreateFlats < ActiveRecord::Migration
       t.integer :sec_deposit
       t.integer :cleaning_fee
       t.text :house_rules
-      t.string :photo_id
       t.integer :user_id
 
       t.timestamps

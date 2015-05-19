@@ -15,7 +15,7 @@
 		</script>
 		<% @flats.each do |flat| %>   
 			<%= link_to flat.tagline, home_path(:id => flat.id) %><br />
-				<%= link_to flat.user.f_name, edit_home_path(:id => flat.user_id) %><br />
+				<%= link_to flat.user.fullname, edit_home_path(:id => flat.user_id) %><br />
 				<%= flat.available_date.strftime("%b %d") %><br />
 				<%= flat.address %><br />
 				<%= flat.city %><br />
@@ -27,7 +27,6 @@
 				<%= flat.sec_deposit %><br />
 				<%= flat.cleaning_fee %><br />
 				<%= flat.house_rules %><br />
-				<%= image_tag(attachment_url(flat, :photo, :fill, 300, 300)) %><br />
 				<% if current_user.id == flat.id %>
 					<%= link_to 'Edit', edit_flat_path(flat) %>
 					<%= link_to 'Remove', flat, method: :delete, data: { confirm: 'Are you sure?' } %><br /> <br />       	

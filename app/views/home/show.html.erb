@@ -13,7 +13,6 @@
 		<%= flat.sec_deposit %><br />
 		<%= flat.cleaning_fee %><br />
 		<%= flat.house_rules %><br />
-		<%= image_tag(attachment_url(flat, :photo, :fill, 300, 300)) %><br />
 		<% if current_user.id == flat.user_id %>
 			<%= link_to 'Edit', edit_flat_path(flat) %>
 			<%= link_to 'Destroy', flat, method: :delete, data: { confirm: 'Are you sure?' } %>        	

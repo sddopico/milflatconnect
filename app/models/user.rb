@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 		  	if registered_user
 				return registered_user
 		  	else
-				user = User.create(f_name:auth.extra.raw_info.name,
+				user = User.create(name:auth.extra.raw_info.name,
 						provider:auth.provider,
 						uid:auth.uid,
 						email:auth.info.email,
@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
 		  	if registered_user
 				return registered_user
 		  	else
-				user = User.create(f_name:auth.extra.raw_info.firstName + ' ' + auth.extra.raw_info.lastName,
+				user = User.create(name:auth.extra.raw_info.firstName + ' ' + auth.extra.raw_info.lastName,
 						provider:auth.provider,
 						uid:auth.uid,
 						email:auth.info.email,
@@ -44,10 +44,9 @@ class User < ActiveRecord::Base
 		  	end
 		end
 	end
-
 	
 	def fullname
-		a = f_name + ' ' + l_name
+		a = name
 		b = a.titleize
 		return b
 	end

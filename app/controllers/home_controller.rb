@@ -14,10 +14,10 @@ class HomeController < ApplicationController
   def show
   	@flats = Flat.all
   	@comments = Comment.select("id", "date_filed", "commentor_id", "comment", "user_id")
-  	@users = User.select("id", "f_name")
+  	@users = User.select("id", "name")
   end
   def edit
   	@comments = Comment.select("id", "date_filed", "commentor_id", "comment", "user_id")
-  	@users = User.select("id", "f_name")
+  	@users = User.select("id", "name")
   end
 end

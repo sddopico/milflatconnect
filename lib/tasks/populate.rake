@@ -3,20 +3,17 @@ namespace :db do
   	require 'ffaker'
 
 		#users
-		10000.times do
-		f_name = FFaker::Name.first_name
-		l_name = FFaker::Name.last_name
+		1000.times do
+		name = FFaker::Name.name
 			 User.create(
-				email: f_name + '.' + l_name + mil,
+				email: name + mil,
 				password: 'password',
-				f_name: f_name,
-				l_name: l_name,
-				cell_num: '760-889-2461'
+				name: name
 			)
 		end
 		
 		#flats
-		(1..5000).each do |n|
+		(1..500).each do |n|
 			user = n	
 			tagline = FFaker::Lorem.phrase
 			description = FFaker::Lorem.paragraph
@@ -29,9 +26,9 @@ namespace :db do
 				city: city,
 				base: base.sample,
 				description: description,
-				bedroom: 3,
-				bathroom: 2,
-				price: 1275,
+				bedroom: bedroom.sample,
+				bathroom: bathroom.sample,
+				price: price.sample,
 				sec_deposit: 475,
 				cleaning_fee: 250,
 				house_rules: 'no smoking',
@@ -40,7 +37,7 @@ namespace :db do
 		end
 		
 		#comments
-		15000.times do
+		1500.times do
 			comment = FFaker::Lorem.phrase
 			 Comment.create(
 				user_id: rated.sample,
@@ -56,11 +53,20 @@ def mil
 	['@us.army.mil'].sample
 end
 def rated
-	(1..5000).to_a.shuffle
+	(1..500).to_a.shuffle
 end
 def base
 	["Fort Hood", "Fort Gordon", "Fort Stewart", "Fort Benning", "Fort Irwin", "Fort Sill", "Fort Bliss", "Fort Drum", "Fort Lewis"].to_a.shuffle
 end
 def commentor
-	(5001..10000).to_a.shuffle
+	(501..1000).to_a.shuffle
+end
+def bedroom
+	(1..4).to_a.shuffle
+end
+def bathroom
+	(1..3).to_a.shuffle
+end
+def price
+	[1000, 1100, 1200, 1300].sample
 end
